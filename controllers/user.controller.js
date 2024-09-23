@@ -132,8 +132,6 @@ export const updateProfile = async (req, res) => {
         if(bio) user.profile.bio = bio
         if(skills) user.profile.skills = skillsArray
       
-     
-
         await user.save();
 
         user = {
