@@ -11,14 +11,21 @@ import applicationRoute from "./routes/application.route.js";
 dotenv.config({});
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
-app.use(cors());
+app.use(cors({
+    origin: true,  // Allow all origins
+    credentials: true,  // Allow credentials
+      // Specify allowed methods
+     // Specify allowed headers
+}));
 
-const PORT = 5000;
+
+
 
 app.get("/", (req, res)=>{
     res.send( "hello")
